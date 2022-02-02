@@ -1,2 +1,4 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import "./cdn.css";
 @import "./font.css";
+@import "./header.css";
+@import "./form.css";
