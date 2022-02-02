@@ -2,12 +2,15 @@
   margin-top: 10px;
   width: 600px;
   display: flex;
+  position: relative;
 }
 
-.search-icon {
+.search > i {
+  color: #333333;
   position: absolute;
-
-  color: red;
+  top: 12px;
+  padding-right: 20px;
+  right: 0;
 }
 
 ::placeholder {
@@ -22,6 +25,6 @@
   height: 40px;
   border-radius: 4px;
 }
-.search-bar::after {
+.search-bar:after {
   content: "test";
 }
