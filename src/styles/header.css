@@ -47,6 +47,7 @@ header {
 }
 .navigation-list {
   display: flex;
+  cursor: pointer;
 }
 .navigation-menu {
   position: absolute;

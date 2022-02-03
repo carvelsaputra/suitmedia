@@ -35,11 +35,11 @@ export default {
         },
         {
           name: "Register",
-          href: "#",
+          href: "Register",
         },
         {
           name: "Login",
-          href: "#",
+          href: "Login",
         },
       ],
     };

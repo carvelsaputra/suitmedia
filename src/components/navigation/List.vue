@@ -1,6 +1,6 @@
 <template>
   <div class="navigation-list">
-    <a :href="href" v-text="name" />
+    <a v-text="name" @click="showDialog(href)" />
     <div class="navigation-menu" :class="isHover">
       <a
         class="navigation-item"
@@ -27,21 +27,16 @@ export default {
       required: false,
     },
   },
+
   data() {
     return {
       isHover: false,
     };
   },
   methods: {
-    // linkEvent(nav) {
-    //   let event = {};
-    //   if (nav.href) {
-    //     event.mouseover = () => {
-    //       this.isHover = !this.isHover;
-    //     };
-    //   }
-    //   return event;
-    // },
+    showDialog(params) {
+      this.$emit("click", params);
+    },
   },
 };
 </script>
