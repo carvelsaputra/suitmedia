@@ -18,13 +18,11 @@
   padding-left: 10px;
   font-family: "PT_Sans-Web-bold";
 }
+
 .search-bar {
   border: none;
   background-color: #dddddd;
   width: 100%;
   height: 40px;
   border-radius: 4px;
-}
-.search-bar:after {
-  content: "test";
 }

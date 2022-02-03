@@ -6,18 +6,43 @@
       </div>
       <searchBar />
       <nav class="header-right">
-        <a href="#">Categories</a>
-        <a href="#" class="login">Log in</a>
-        <a href="#">Register</a>
+        <navigation-list-group :list="navigations" />
       </nav>
     </div>
   </header>
 </template>
 <script>
 import searchBar from "./SearchBar.vue";
+import NavigationListGroup from "../navigation/Group.vue";
 export default {
   components: {
     searchBar,
+    NavigationListGroup,
+  },
+  data() {
+    return {
+      navigations: [
+        {
+          name: "Categories",
+          menu: [
+            { name: "Linux", href: "#" },
+            { name: "Windows", href: "#" },
+            { name: "MAC OS", href: "#" },
+            { name: "Android", href: "#" },
+            { name: "iOS", href: "#" },
+          ],
+          href: "#",
+        },
+        {
+          name: "Register",
+          href: "#",
+        },
+        {
+          name: "Login",
+          href: "#",
+        },
+      ],
+    };
   },
 };
 </script>

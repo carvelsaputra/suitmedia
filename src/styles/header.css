@@ -38,14 +38,33 @@ header {
   padding: 0 25px;
   color: white;
   display: flex;
-  justify-content: flex-end;
   transition: all 0.5s;
 }
 
 .header-right a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #71695f;
 }
 
-.btn:hover {
-  opacity: 1;
+.navigation-menu {
+  position: absolute;
+  display: block;
+  top: 65px;
+  font-family: "PT_Sans-Web-Bold";
+  line-height: 60px;
+  background-color: #635c53;
+  width: 10%;
+  transition: all 0.5s;
+}
+.navigation-list {
+  display: flex;
+}
+.navigation-item {
+  cursor: pointer;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
