@@ -2,7 +2,7 @@
   <text-field />
 </template>
 <script>
-import TextField from "../form/TextField.vue";
+import TextField from "@/components/form/TextField.vue";
 export default {
   components: {
     TextField,

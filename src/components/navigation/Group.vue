@@ -2,7 +2,7 @@
   <List v-for="(item, i) in list" :key="i" v-bind="item" />
 </template>
 <script>
-import List from "./List.vue";
+import List from "@/components/navigation/List.vue";
 export default {
   props: {
     list: {

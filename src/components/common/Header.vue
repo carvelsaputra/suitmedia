@@ -12,8 +12,8 @@
   </header>
 </template>
 <script>
-import searchBar from "./SearchBar.vue";
-import NavigationListGroup from "../navigation/Group.vue";
+import searchBar from "@/components/common/SearchBar.vue";
+import NavigationListGroup from "@/components/navigation/Group.vue";
 export default {
   components: {
     searchBar,

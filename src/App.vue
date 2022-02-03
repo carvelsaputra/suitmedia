@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import HeaderApp from "./components/common/Header.vue";
+import HeaderApp from "@/components/common/Header.vue";
 export default {
   components: {
     HeaderApp,

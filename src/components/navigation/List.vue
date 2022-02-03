@@ -1,7 +1,7 @@
 <template>
-  <div class="navigation-list" @mouseover="isHover">
+  <div class="navigation-list" @mouseover="isHover = !isHover">
     <a :href="href" v-text="name" />
-    <div class="navigation-menu">
+    <div class="navigation-menu" :class="isHover">
       <a
         class="navigation-item"
         v-for="(item, i) in menu"
@@ -29,20 +29,17 @@ export default {
   },
   data() {
     return {
-      //   isHover: false,
+      isHover: false,
     };
   },
   methods: {
-    isHover() {},
     // linkEvent(nav) {
     //   let event = {};
-
     //   if (nav.href) {
     //     event.mouseover = () => {
     //       this.isHover = !this.isHover;
     //     };
     //   }
-
     //   return event;
     // },
   },

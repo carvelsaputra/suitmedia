@@ -36,7 +36,7 @@ header {
   line-height: 65px;
   font-family: "PT_Sans-Web-Bold";
   padding: 0 25px;
-  color: white;
+  color: #eeeeee;
   display: flex;
   transition: all 0.5s;
 }
@@ -60,11 +60,4 @@ header {
 }
 .navigation-item {
   cursor: pointer;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
 }
