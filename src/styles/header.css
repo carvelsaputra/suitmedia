@@ -2,6 +2,7 @@
 a {
   text-decoration: none;
 }
+
 /** set max container */
 .container {
   max-width: 1170px;
@@ -44,20 +45,22 @@ header {
 .header-right a:hover {
   background-color: #71695f;
 }
-
+.navigation-list {
+  display: flex;
+}
 .navigation-menu {
   position: absolute;
-  display: block;
   top: 65px;
   font-family: "PT_Sans-Web-Bold";
   line-height: 60px;
   background-color: #635c53;
   width: 10%;
-  transition: all 0.5s;
+  display: none;
 }
-.navigation-list {
-  display: flex;
+.navigation-list:hover > .navigation-menu {
+  display: block;
 }
+
 .navigation-item {
   cursor: pointer;
 }

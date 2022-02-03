@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation-list" @mouseover="isHover = !isHover">
+  <div class="navigation-list">
     <a :href="href" v-text="name" />
     <div class="navigation-menu" :class="isHover">
       <a
