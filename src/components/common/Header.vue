@@ -21,6 +21,9 @@ export default {
   },
   data() {
     return {
+      /**
+       * Navigation's data
+       */
       navigations: [
         {
           name: "Categories",

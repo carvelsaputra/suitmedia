@@ -1,12 +1,14 @@
 <template>
   <List v-for="(item, i) in list" :key="i" v-bind="item" @click="showDialog" />
-  <!-- Dialog Login -->
+  <!-- Start ==> Dialog Login -->
   <Dialog
     v-if="showDialogLogin"
     :title="dialogTitle"
     @close="showDialogLogin = false"
   >
+    <!-- Start ==> Slot Body Dialog Login -->
     <template v-slot:body>
+      <!-- Start ==> Input Text Email -->
       <div class="form-wrapper">
         <text-field>
           <template v-slot:inputText>
@@ -23,6 +25,9 @@
           </template>
         </text-field>
       </div>
+      <!-- End ==> Input Text Email -->
+
+      <!-- Start ==> Input Text Password -->
       <div class="form-wrapper">
         <text-field>
           <template v-slot:inputText>
@@ -35,17 +40,21 @@
           </template>
         </text-field>
       </div>
+      <!-- End ==> Input Text Password -->
     </template>
+    <!-- END ==> Slot Body Dialog Login -->
   </Dialog>
-  <!-- Dialog Login -->
+  <!-- END ==> Dialog Login -->
 
-  <!-- Dialog Register -->
+  <!-- Start ==> Dialog Register -->
   <Dialog
     v-if="showDialogRegister"
     :title="dialogTitle"
     @close="showDialogRegister = false"
   >
+    <!-- Start ==> Slot Body Dialog Register -->
     <template v-slot:body>
+      <!-- Start ==> Input Text Name -->
       <div class="form-wrapper">
         <text-field>
           <template v-slot:inputText>
@@ -62,6 +71,9 @@
           </template>
         </text-field>
       </div>
+      <!-- End ==> Input Text Name -->
+
+      <!-- Start ==> Input Text Email -->
       <div class="form-wrapper">
         <text-field>
           <template v-slot:inputText>
@@ -78,6 +90,9 @@
           </template>
         </text-field>
       </div>
+      <!-- End ==> Input Text Email -->
+
+      <!-- Start ==> Input Text Password -->
       <div class="form-wrapper">
         <text-field>
           <template v-slot:inputText>
@@ -90,9 +105,11 @@
           </template>
         </text-field>
       </div>
+      <!-- End ==> Input Text Password -->
     </template>
+    <!-- END ==> Slot Body Dialog Register -->
   </Dialog>
-  <!-- Dialog Register -->
+  <!-- End ==> Dialog Register -->
 </template>
 <script>
 import List from "@/components/navigation/List.vue";
@@ -101,6 +118,9 @@ import TextField from "@/components/form/TextField";
 
 export default {
   props: {
+    /**
+     * Array of object that keep the navigation's data
+     */
     list: {
       type: Array,
     },
@@ -112,14 +132,22 @@ export default {
   },
   data() {
     return {
+      /**
+       * Dialog Login condition
+       */
       showDialogLogin: false,
+      /**
+       * Dialog Register condition
+       */
       showDialogRegister: false,
+      /**
+       * Dialog Title
+       */
       dialogTitle: "",
     };
   },
   methods: {
     showDialog(params) {
-      console.log(params);
       if (params == "Login") {
         this.showDialogLogin = !this.showDialogLogin;
         this.dialogTitle = params;
