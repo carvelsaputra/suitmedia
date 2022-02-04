@@ -49,6 +49,8 @@
 .modal-default-button {
   border-radius: 5px;
   background-color: #635c53;
+  font-family: "PT_Sans-Web-bold";
+
   border: none;
   color: #eeeeee;
   width: 20%;
