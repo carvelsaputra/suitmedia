@@ -1,10 +1,10 @@
-.search {
+.text-field-wrapper {
   margin-top: 10px;
   display: flex;
   position: relative;
 }
 
-.search > i {
+.text-field-wrapper > i {
   color: #333333;
   position: absolute;
   top: 12px;
@@ -24,4 +24,19 @@
   width: 100%;
   height: 40px;
   border-radius: 4px;
+}
+
+.error label {
+  color: #cc0033;
+}
+
+.error input {
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error-message {
+  font-family: "PT_Sans-Web-Regular";
+  color: #ff5f2d;
+  text-align: left;
 }

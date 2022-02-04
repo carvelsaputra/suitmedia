@@ -32,13 +32,17 @@
   color: #635c53;
 }
 
-.icon {
+.icon-wrapper {
   position: absolute;
+  width: 30px;
   right: 0;
-  margin-right: -40px;
+  background-color: #ff5f2d;
+  margin-right: -45px;
   margin-top: -28px;
-  color: #ff5f2d;
   cursor: pointer;
+}
+.icon {
+  color: #eeeeee;
 }
 .modal-body {
   margin: 40px 0;
@@ -50,7 +54,7 @@
   border-radius: 5px;
   background-color: #635c53;
   font-family: "PT_Sans-Web-bold";
-
+  cursor: pointer;
   border: none;
   color: #eeeeee;
   width: 20%;

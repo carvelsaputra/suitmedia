@@ -8,25 +8,20 @@
             <div v-text="title"></div>
           </slot>
           <!-- End ==> header slot  -->
-
-          <i class="fas fa-window-close icon" @click="$emit('close')"></i>
+          <div class="icon-wrapper" @click="$emit('close')">
+            <i class="fas fa-times fa-xs icon"></i>
+          </div>
         </div>
 
         <div class="modal-body">
           <!-- Start ==> body slot  -->
-          <slot name="body"> </slot>
+          <slot name="body" :value="user"> </slot>
           <!-- End ==> body slot  -->
         </div>
 
         <div class="modal-footer">
           <!-- Start ==> footer slot  -->
-          <slot name="footer">
-            <button
-              class="modal-default-button"
-              @click="$emit('close')"
-              v-text="title"
-            />
-          </slot>
+          <slot name="footer"> </slot>
           <!-- End ==> footer slot  -->
         </div>
       </div>

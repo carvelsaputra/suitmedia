@@ -1,7 +1,7 @@
 <template>
   <div class="navigation-list">
     <a v-text="name" @click="showDialog(href)" />
-    <div class="navigation-menu" :class="isHover">
+    <div class="navigation-menu">
       <a
         class="navigation-item"
         v-for="(item, i) in menu"
@@ -28,11 +28,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      isHover: false,
-    };
-  },
   methods: {
     showDialog(params) {
       this.$emit("click", params);

@@ -1,5 +1,5 @@
 <template>
-  <div class="search" :style="customStyle">
+  <div class="text-field-wrapper" :style="customStyle">
     <slot name="inputText">
       <input class="text-field" placeholder="Search" type="text" />
     </slot>
