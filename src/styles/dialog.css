@@ -35,13 +35,13 @@
 .icon {
   position: absolute;
   right: 0;
-  margin-right: -50px;
-  margin-top: -40px;
+  margin-right: -40px;
+  margin-top: -28px;
   color: #ff5f2d;
   cursor: pointer;
 }
 .modal-body {
-  margin: 20px 0;
+  margin: 40px 0;
 }
 .modal-footer {
   text-align: left;

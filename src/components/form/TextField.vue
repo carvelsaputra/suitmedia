@@ -1,9 +1,19 @@
 <template>
-  <div class="search">
-    <input class="search-bar" placeholder="Search" type="text" />
-    <i class="fas fa-search"></i>
+  <div class="search" :style="customStyle">
+    <slot name="inputText">
+      <input class="text-field" placeholder="Search" type="text" />
+    </slot>
+    <slot name="icon">
+      <i class="fas fa-search"></i>
+    </slot>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    customStyle: {
+      type: Object,
+    },
+  },
+};
 </script>

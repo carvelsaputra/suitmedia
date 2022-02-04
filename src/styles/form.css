@@ -1,6 +1,5 @@
 .search {
   margin-top: 10px;
-  width: 600px;
   display: flex;
   position: relative;
 }
@@ -19,7 +18,7 @@
   font-family: "PT_Sans-Web-bold";
 }
 
-.search-bar {
+.text-field {
   border: none;
   background-color: #dddddd;
   width: 100%;
