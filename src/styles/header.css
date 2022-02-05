@@ -45,6 +45,9 @@ header {
 .header-right a:hover {
   background-color: #71695f;
 }
+.header-right li ul li:hover {
+  background-color: #71695f;
+}
 .navigation-list {
   display: flex;
   cursor: pointer;

@@ -1,5 +1,11 @@
 <template>
-  <List v-for="(item, i) in list" :key="i" v-bind="item" @click="showDialog" />
+  <List
+    class="nav-group"
+    v-for="(item, i) in list"
+    :key="i"
+    v-bind="item"
+    @click="showDialog"
+  />
   <!-- Start ==> Dialog Login -->
   <Dialog
     v-if="showDialogLogin"
@@ -250,7 +256,8 @@ export default {
   background-color: #eeeeee;
 }
 .form-label {
-  position: absolute;
+  z-index: 5;
+  position: fixed;
   margin-top: -20px;
 }
 .form-wrapper {

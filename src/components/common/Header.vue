@@ -4,8 +4,9 @@
       <div class="header-left">
         <p class="app-title">Forum Anak IT</p>
       </div>
-      <searchBar />
+      <searchBar class="search-bar" />
       <nav class="header-right">
+        <drawer class="drawer" :list="navigations" />
         <navigation-list-group :list="navigations" />
       </nav>
     </div>
@@ -13,11 +14,13 @@
 </template>
 <script>
 import searchBar from "@/components/common/SearchBar.vue";
+import Drawer from "@/components/common/Drawer.vue";
 import NavigationListGroup from "@/components/navigation/Group.vue";
 export default {
   components: {
     searchBar,
     NavigationListGroup,
+    Drawer,
   },
   data() {
     return {
