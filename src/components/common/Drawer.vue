@@ -1,5 +1,5 @@
 <template>
-  <div class="menu_wrapper">
+  <div class="menu_wrapper drawer">
     <input type="checkbox" id="drawer-toggle" />
     <label for="drawer-toggle" id="drawer-toggle-label">
       <i class="fas fa-bars fa-2x"></i>

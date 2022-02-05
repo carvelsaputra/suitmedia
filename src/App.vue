@@ -1,12 +1,17 @@
 <template>
   <header-app></header-app>
+  <section class="threads container">
+    <thread-viewer />
+  </section>
 </template>
 
 <script>
 import HeaderApp from "@/components/common/Header.vue";
+import ThreadViewer from "@/pages/ThreadViewer";
 export default {
   components: {
     HeaderApp,
+    ThreadViewer,
   },
 };
 </script>

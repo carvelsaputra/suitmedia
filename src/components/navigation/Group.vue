@@ -117,7 +117,7 @@
 
         <!-- Start ==> Input Text Password -->
         <div class="form-wrapper">
-          <text-field :class="passwordIsError">
+          <text-field :class="[passwordIsError, submitted ? 'success' : '']">
             <template v-slot:inputText>
               <label for="password" class="form-label">Password</label>
               <input
@@ -245,6 +245,7 @@ export default {
         this.errMessage.password = "Wajib Diisi";
       } else {
         console.log("Register Sukses");
+        this.validated = true;
       }
       console.log(this.errMessage);
     },
@@ -254,13 +255,5 @@ export default {
 <style scoped>
 .text-field {
   background-color: #eeeeee;
-}
-.form-label {
-  z-index: 5;
-  position: fixed;
-  margin-top: -20px;
-}
-.form-wrapper {
-  margin-top: 30px;
 }
 </style>

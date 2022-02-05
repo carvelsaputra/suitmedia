@@ -6,7 +6,7 @@
       </div>
       <searchBar class="search-bar" />
       <nav class="header-right">
-        <drawer class="drawer" :list="navigations" />
+        <drawer :list="navigations" />
         <navigation-list-group :list="navigations" />
       </nav>
     </div>
@@ -52,5 +52,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

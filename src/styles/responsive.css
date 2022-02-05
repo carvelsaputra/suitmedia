@@ -1,11 +1,17 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
+  .drawer-mobile {
+    display: block;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .nav-group {
     display: none;
+  }
+  body .drawer {
+    display: block;
   }
 }
 
@@ -14,110 +20,11 @@
   .search-bar {
     display: none;
   }
+  .drawer-mobile {
+    display: block;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
-}
-
-/* .menu-icon {
-  color: white;
-  margin-top: 15px;
-}
-.drawer-navigation-wrapper {
-  position: relative;
-}
-.menu_wrapper input[type="checkbox"] {
-  display: none;
-}
-.menu_wrapper input[type="checkbox"]:checked ~ div {
-  background-color: red;
-  position: absolute;
-  top: 0;
-}
-.menu_wrapper input[type="checkbox"]:checked ~ label {
-  display: none;
-} */
-
-#drawer-toggle-label:before {
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 24px;
-  background: #fff;
-  right: 13px;
-  top: 18px;
-  box-shadow: 0 6px 0 #fff, 0 12px 0 #fff;
-}
-
-#drawer-toggle-label {
-  display: block;
-  position: absolute;
-  top: 15px;
-  right: 0;
-  height: 50px;
-  width: 50px;
-  z-index: 1;
-  color: #eeeeee;
-  background: transparent;
-}
-
-#drawer-toggle {
-  display: none;
-}
-
-#drawer-toggle:checked ~ #drawer-toggle-label,
-#drawer-toggle:checked ~ header {
-  /* right: calc(100% - 200px); */
-}
-
-#drawer-toggle:checked ~ #drawer {
-  width: calc(100% - 50px);
-  right: 0;
-}
-
-#drawer-toggle:checked ~ section.content-wrapper {
-  margin-right: 250px;
-}
-
-#drawer {
-  position: fixed;
-  top: 0;
-  padding-top: 50px;
-  height: 100%;
-  width: 250px;
-  background: #635c53;
-  overflow-x: hidden;
-  overflow-y: auto;
-  right: -250px;
-}
-#drawer ul {
-  list-style: none;
-  padding: 0;
-}
-
-#drawer li a {
-  display: block;
-  color: #eeeeee;
-  text-decoration: none;
-  text-align: right;
-}
-#drawer li ul {
-  margin-right: 50px;
-  font-family: "PT_Sans-Web-Bold";
-  display: block;
-  text-align: right;
-  color: #eeeeee;
-}
-#drawer li ul li {
-  padding: 20px 0;
-}
-#drawer li {
-  margin: 0;
-  width: 100%;
-  padding: 10px 0;
-}
-
-#drawer {
-  padding-top: 10px;
 }
