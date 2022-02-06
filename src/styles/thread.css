@@ -57,3 +57,14 @@
   margin-top: 20px;
   display: flex;
 }
+
+.thread-comment-wrapper {
+  text-align: left;
+  display: flex;
+  margin-top: 20px;
+}
+.thread-comment-avatar {
+}
+.thread-comment-detail {
+  margin-left: 20px;
+}
