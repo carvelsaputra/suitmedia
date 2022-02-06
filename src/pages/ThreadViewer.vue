@@ -1,8 +1,15 @@
 <template>
-  <section class="thread-wrapper">
-    <thread-detail />
-  </section>
-  <thread-top :list="discussions" />
+  <div class="thread-wrapper">
+    <div class="thread-detail-wrapper">
+      <thread-detail />
+      <div class="comment-wrapper">
+        <div>
+          <p class="comment">Komentar</p>
+        </div>
+      </div>
+    </div>
+    <thread-top :list="discussions" />
+  </div>
 </template>
 <script>
 import ThreadDetail from "@/components/thread/ThreadDetail";
@@ -25,3 +32,22 @@ export default {
   },
 };
 </script>
+<style scoped>
+.comment-wrapper {
+  margin-top: 30px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.comment {
+  font-family: "PT_Sans-Web-Bold";
+  font-size: 30px;
+}
+.comment-wrapper::after {
+  margin-left: 10px;
+
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+</style>

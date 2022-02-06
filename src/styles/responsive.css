@@ -13,6 +13,9 @@
   body .drawer {
     display: block;
   }
+  body .thread-wrapper {
+    display: block;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

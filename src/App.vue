@@ -1,6 +1,6 @@
 <template>
   <header-app></header-app>
-  <section class="threads container">
+  <section class="thread-container">
     <thread-viewer />
   </section>
 </template>
