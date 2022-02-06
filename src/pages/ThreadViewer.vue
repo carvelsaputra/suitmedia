@@ -8,6 +8,12 @@
         </div>
       </div>
       <thread-comment :list="comments" />
+      <div class="comment-wrapper">
+        <div>
+          <p class="comment">Tambahkan Komentar</p>
+        </div>
+      </div>
+      <thread-add-comment @submit="submit" />
     </div>
     <thread-top :list="discussions" />
   </div>
@@ -16,11 +22,13 @@
 import ThreadDetail from "@/components/thread/ThreadDetail";
 import ThreadTop from "@/components/thread/ThreadTop";
 import ThreadComment from "@/components/thread/ThreadComment";
+import ThreadAddComment from "@/components/thread/ThreadAddComment";
 export default {
   components: {
     ThreadTop,
     ThreadDetail,
     ThreadComment,
+    ThreadAddComment,
   },
   data() {
     return {
@@ -35,7 +43,8 @@ export default {
         {
           id: "fa1ca3c1-cc1e-4ed9-86b8-f60d8312d499",
           author: "Neal Topham",
-          avatar: "http://lorempixel.com/100/100/people/1/",
+          avatar:
+            "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
           date: "2017-02-08T00:30:05.552Z",
           message:
             "Mungkin ada fenomena paranormal yang tidak bisa dijelaskan. Lebih baik nyala mati sendiri daripada tidak nyala sama sekali",
@@ -44,7 +53,8 @@ export default {
             {
               id: "4ba9a8d1-cbe9-4906-ac23-0030f5df027e",
               author: "Dyan Shankin",
-              avatar: "http://lorempixel.com/100/100/people/2/",
+              avatar:
+                "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGF2YXRhciUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
               date: "2017-02-08T00:33:20.369Z",
               message: "Confirm, itu kemungkinan aktivitas paranormal.",
               point: 0,
@@ -54,7 +64,8 @@ export default {
         {
           id: "9b3d6fe2-e3fc-47c6-b09a-f2b40547b101",
           author: "Jacquelyne Garrity",
-          avatar: "http://lorempixel.com/100/100/people/2/",
+          avatar:
+            "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           date: "2017-02-08T00:32:18.214Z",
           message:
             "Saya mengalami hal serupa. Laptop yang digunakan Toshiba L645. Tolong infonya.",
@@ -63,7 +74,8 @@ export default {
             {
               id: "e157bcd4-68d7-4d2a-ade1-da50f0913daf",
               author: "Shella Tamashiro",
-              avatar: "http://lorempixel.com/100/100/people/1/",
+              avatar:
+                "https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGF2YXRhciUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
               date: "2017-02-09T00:33:20.369Z",
               message:
                 "Ada kemungkinan ini masalah virus. Coba dilakukan virus scan menggunakan software anti virus.",
@@ -72,7 +84,8 @@ export default {
             {
               id: "ff441e8a-7465-4527-bd9a-ed6d3ad5fdef",
               author: "Marcelino Stangle",
-              avatar: "http://lorempixel.com/100/100/people/1/",
+              avatar:
+                "https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
               date: "2017-02-09T00:37:38.411Z",
               message: "Setuju",
               point: 1,
@@ -82,7 +95,8 @@ export default {
         {
           id: "27526171-1236-4785-a67f-72b48989e3ff",
           author: "Lawanda Schey",
-          avatar: "http://lorempixel.com/100/100/people/3/",
+          avatar:
+            "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
           date: "2017-02-09T00:32:18.214Z",
           message:
             "Apakah ada solusi lain? Sudah dicoba untuk scan virus tapi kasus ini tetap ada.",
@@ -91,6 +105,9 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    submit() {},
   },
 };
 </script>

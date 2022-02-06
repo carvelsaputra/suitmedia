@@ -1,28 +1,59 @@
 <template>
   <article>
-    <div class="thread-comment-wrapper">
+    <div
+      v-for="(comment, i) in comments"
+      :key="i"
+      class="thread-comment-wrapper"
+    >
       <div class="thread-comment-avatar">
-        <img
-          width="120"
-          src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        />
+        <img width="120" :src="comment.avatar" />
       </div>
       <div class="thread-comment-detail">
-        <h3 class="title">Neal Topham</h3>
-        <p class="comment date">{{ dateToString }}</p>
+        <h3 class="title">{{ comment.author }}</h3>
+        <p class="comment date">{{ comment.date }}</p>
         <p class="comment content">
-          Mungkin ada fenomena paranormal yang tidak bisa dijelaskan. Lebih baik
-          nyala mati sendiri daripada tidak nyala sama sekali
+          {{ comment.message }}
         </p>
         <div class="comment-reaction">
           <div class="reaction">
-            <p class="reaction poin">{{ poin }} poin</p>
+            <p class="reaction poin">{{ comment.point }} poin</p>
           </div>
           <div class="btn up" :style="stylesUp" @click.once="setScoreUp">
             <i class="fas fa-arrow-up"></i>
           </div>
           <div class="btn down" :style="stylesDown" @click.once="setScoreDown">
             <i class="fas fa-arrow-down"></i>
+          </div>
+        </div>
+        <div
+          v-for="(list, i) in comment.replies"
+          :key="i"
+          class="thread-comment-wrapper"
+        >
+          <div class="thread-comment-avatar">
+            <img width="120" :src="list.avatar" />
+          </div>
+          <div class="thread-comment-detail">
+            <h3 class="title">{{ list.author }}</h3>
+            <p class="comment date">{{ list.date }}</p>
+            <p class="comment content">
+              {{ list.message }}
+            </p>
+            <div class="comment-reaction">
+              <div class="reaction">
+                <p class="reaction poin">{{ list.point }} poin</p>
+              </div>
+              <div class="btn up" :style="stylesUp" @click.once="setScoreUp">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+              <div
+                class="btn down"
+                :style="stylesDown"
+                @click.once="setScoreDown"
+              >
+                <i class="fas fa-arrow-down"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -45,8 +76,14 @@ export default {
     };
   },
   computed: {
-    dateToString() {
-      return moment(this.date).format("DD MMMM YYYY hh:mm");
+    comments() {
+      return this.list.map((row) => {
+        row.date = moment(row.date).format("DD MMMM YYYY hh:mm");
+        row.replies.map((item) => {
+          item.date = moment(item.date).format("DD MMMM YYYY hh:mm");
+        });
+        return row;
+      });
     },
   },
   methods: {
@@ -72,14 +109,6 @@ export default {
       };
       this.isClicked = !this.isClicked;
     },
-    setScore(params) {
-      if (params == "up") {
-        this.poin++;
-      }
-      if (params == "down") {
-        this.poin--;
-      }
-    },
   },
 };
 </script>
@@ -95,7 +124,7 @@ export default {
   line-height: 20px;
 }
 .comment-reaction {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
 }
 .reaction {
