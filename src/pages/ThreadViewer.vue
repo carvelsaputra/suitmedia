@@ -107,7 +107,6 @@ export default {
 }
 .comment-wrapper::after {
   margin-left: 10px;
-
   content: "";
   flex: 1;
   border-bottom: 1px solid #000;
