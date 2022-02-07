@@ -1,10 +1,6 @@
 <template>
   <article>
-    <div
-      v-for="(comment, i) in comments"
-      :key="i"
-      class="thread-comment-wrapper"
-    >
+    <div v-for="(comment, i) in list" :key="i" class="thread-comment-wrapper">
       <div class="thread-comment-avatar">
         <img width="120" :src="comment.avatar" />
       </div>
@@ -31,7 +27,7 @@
           class="thread-comment-wrapper"
         >
           <div class="thread-comment-avatar">
-            <img width="120" :src="list.avatar" />
+            <img width="70" :src="list.avatar" />
           </div>
           <div class="thread-comment-detail">
             <h3 class="title">{{ list.author }}</h3>
@@ -61,7 +57,6 @@
   </article>
 </template>
 <script>
-import moment from "moment";
 export default {
   props: {
     list: {
@@ -70,22 +65,10 @@ export default {
   },
   data() {
     return {
-      date: "2017-02-08T00:30:05.552Z",
-      poin: 3,
       isClicked: true,
     };
   },
-  computed: {
-    comments() {
-      return this.list.map((row) => {
-        row.date = moment(row.date).format("DD MMMM YYYY hh:mm");
-        row.replies.map((item) => {
-          item.date = moment(item.date).format("DD MMMM YYYY hh:mm");
-        });
-        return row;
-      });
-    },
-  },
+
   methods: {
     setScoreUp() {
       if (!this.isClicked) {

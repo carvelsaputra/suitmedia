@@ -1,4 +1,5 @@
 import axios from "@/plugins/axios";
+import moment from "moment";
 export const comment = {
   namespaced: true,
   state: () => ({
@@ -14,10 +15,17 @@ export const comment = {
   mutations: {
     setList(state, newList) {
       state.list = newList;
-      console.log(state.list);
     },
   },
   getters: {
-    list: (state) => state.list,
+    list: (state) => {
+      return state.list.map((row) => {
+        row.date = moment(row.date).format("DD MMMM YYYY hh:mm");
+        row.replies.map((item) => {
+          item.date = moment(item.date).format("DD MMMM YYYY hh:mm");
+        });
+        return row;
+      });
+    },
   },
 };
