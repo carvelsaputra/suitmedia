@@ -3,6 +3,9 @@
   .drawer-mobile {
     display: block;
   }
+  body .add-comment-wrapper {
+    width: 100%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -16,6 +19,19 @@
   body .thread-wrapper {
     display: block;
   }
+  body .thread-container {
+    margin-top: 100px;
+  }
+  body .threads-top-wrapper {
+    margin-left: 0;
+  }
+  body .thread-detail-wrapper {
+    border-right: none;
+  }
+  body .add-comment-wrapper {
+    width: 100%;
+    display: inline;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -26,8 +42,4 @@
   .drawer-mobile {
     display: block;
   }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {
 }
