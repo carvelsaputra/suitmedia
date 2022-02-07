@@ -11,13 +11,6 @@
     </p>
   </article>
 </template>
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script>
 <style scoped>
 .container {
   height: 100%;

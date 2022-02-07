@@ -46,7 +46,12 @@
   color: #eeeeee;
   border-radius: 5px;
 }
-
+.threads-title a:hover {
+  text-decoration: underline;
+}
+.threads-title a {
+  color: #71695f;
+}
 .threads-title {
   font-size: 12px;
   margin-left: 10px;

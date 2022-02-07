@@ -1,6 +1,6 @@
 <template>
   <section class="add-comment-wrapper">
-    <text-field class="form" :class="nameIsError">
+    <text-field class="form" :class="[nameIsError, nameIsSuccess]">
       <template v-slot:inputText>
         <div class="label">
           <label for="Name">Name</label>
@@ -18,7 +18,7 @@
     </text-field>
     <div class="error-message">{{ errMessage.name }}</div>
 
-    <text-field class="form" :class="emailIsError">
+    <text-field class="form" :class="[emailIsError, emailIsSuccess]">
       <template v-slot:inputText>
         <label for="email" class="label">Email</label>
         <input
@@ -34,15 +34,10 @@
     </text-field>
     <div class="error-message">{{ errMessage.email }}</div>
 
-    <text-field class="form" :class="commentIsError">
+    <text-field class="form" :class="[commentIsError, commentIsSuccess]">
       <template v-slot:inputText>
-        <label for="email" class="label">Komentar</label>
-        <textarea
-          type="email"
-          v-model="comment.content"
-          class="text-field"
-          id="email"
-        />
+        <label for="konten" class="label">Komentar</label>
+        <textarea v-model="comment.content" class="text-field" id="konten" />
       </template>
       <template v-slot:icon>
         <i class="fas fa-pen"></i>
@@ -65,62 +60,123 @@ export default {
   },
   data() {
     return {
+      /**
+       * data for v-model that we use at comment's form
+       */
       comment: {
         name: "",
         email: "",
         content: "",
       },
+      /**
+       * custom error message
+       */
       errMessage: {
         name: "",
         email: "",
         comment: "",
       },
+      /**
+       * conditional if success form
+       */
+      name: false,
+      email: false,
+      komen: false,
     };
   },
   computed: {
+    // on success insert form
+    nameIsSuccess() {
+      return this.name ? "success" : "";
+    },
+
+    emailIsSuccess() {
+      return this.email ? "success" : "";
+    },
+
+    commentIsSuccess() {
+      return this.komen ? "success" : "";
+    },
+
+    // on error insert form
     nameIsError() {
       return this.errMessage.name ? "error" : "";
     },
+
     emailIsError() {
       return this.errMessage.email ? "error" : "";
     },
+
     commentIsError() {
       return this.errMessage.comment ? "error" : "";
     },
   },
   methods: {
+    /**
+     * validate email's format
+     */
     validEmail(email) {
       var re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     },
+    /**
+     * clear text that we input at comment's form
+     */
     clearMessage() {
+      this.name = false;
+      this.email = false;
+      this.password = false;
       this.comment.name = "";
       this.comment.email = "";
       this.comment.content = "";
 
+      this.clearErrorMessage();
+    },
+    /**
+     * clear error text
+     */
+    clearErrorMessage() {
       this.errMessage.name = "";
       this.errMessage.email = "";
       this.errMessage.comment = "";
     },
+    /**
+     * custom form validation
+     */
     validate() {
+      this.clearErrorMessage();
       if (!this.comment.name) {
         this.errMessage.name = "Wajib Diisi";
       }
+
       if (!this.comment.email) {
         this.errMessage.email = "Wajib Diisi";
       }
+
       if (!this.validEmail(this.comment.email)) {
         this.errMessage.email = "Format email salah";
       }
+
       if (!this.comment.content) {
         this.errMessage.comment = "Wajib Diisi";
-      } else {
-        console.log("Register Sukses");
-        this.validated = true;
-        this.clearMessage();
       }
-      console.log(this.errMessage);
+
+      // condition if input text not have any error messages
+      if (!this.errMessage.email) {
+        this.email = true;
+      }
+
+      if (!this.errMessage.name) {
+        this.name = true;
+      }
+
+      if (!this.errMessage.comment) {
+        this.komen = true;
+      } else {
+        // we can dispatch action at here
+        console.log("Register Sukses");
+      }
     },
   },
 };

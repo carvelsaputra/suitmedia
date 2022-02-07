@@ -34,14 +34,29 @@ export default {
 
   data() {
     return {
+      /**
+       * boolean for handle button is it already clicked or not
+       */
       isClicked: true,
+      /**
+       * handle all of our data from props
+       */
       comment: {},
+      /**
+       * set styles if user click up button
+       */
       stylesUp: {},
+      /**
+       * set styles if user click down button
+       */
       stylesDown: {},
     };
   },
 
   methods: {
+    /**
+     * handle if user click up button
+     */
     setScoreUp() {
       if (!this.isClicked) {
         return;
@@ -53,6 +68,9 @@ export default {
       this.comment.point++;
       this.isClicked = !this.isClicked;
     },
+    /**
+     * handle if user click down button
+     */
     setScoreDown() {
       if (!this.isClicked) {
         return;

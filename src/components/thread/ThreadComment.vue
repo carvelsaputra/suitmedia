@@ -13,6 +13,9 @@
 <script>
 import ThreadDetailComment from "@/components/thread/ThreadDetailComment";
 export default {
+  /**
+   * list of data from pages that we sent to thread-detail-component
+   */
   props: {
     list: {
       type: Array,
@@ -23,6 +26,9 @@ export default {
   },
   data() {
     return {
+      /**
+       * custom width reply user's avatar image
+       */
       width: 70,
     };
   },

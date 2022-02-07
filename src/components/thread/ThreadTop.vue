@@ -5,7 +5,9 @@
       <ul>
         <li class="threads-item" v-for="(item, i) in list" :key="i">
           <div class="threads-number">{{ i + 1 }}</div>
-          <div class="threads-title">{{ item }}</div>
+          <div class="threads-title">
+            <a href="#">{{ item }}</a>
+          </div>
         </li>
       </ul>
     </div>

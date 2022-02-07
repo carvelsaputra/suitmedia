@@ -194,27 +194,37 @@ export default {
         name: "",
         password: "",
       },
-      email: false,
+      /**
+       * conditional if success form
+       */
       name: false,
+      email: false,
       password: false,
     };
   },
   computed: {
+    // on success insert form
     nameIsSuccess() {
       return this.name ? "success" : "";
     },
+
     emailIsSuccess() {
       return this.email ? "success" : "";
     },
+
     passwordIsSuccess() {
       return this.password ? "success" : "";
     },
+
+    // on error insert form
     nameIsError() {
       return this.errMessage.name ? "error" : "";
     },
+
     emailIsError() {
       return this.errMessage.email ? "error" : "";
     },
+
     passwordIsError() {
       return this.errMessage.password ? "error" : "";
     },
@@ -232,11 +242,18 @@ export default {
         this.dialogTitle = params;
       }
     },
+
+    /**
+     * validate email's format
+     */
     validEmail(email) {
       var re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     },
+    /**
+     * clear text that we input at comment's form
+     */
     clearMessage() {
       this.name = false;
       this.email = false;
@@ -246,6 +263,9 @@ export default {
       this.errMessage.email = "";
       this.errMessage.password = "";
     },
+    /**
+     * custom form validation
+     */
     validate() {
       this.clearMessage();
       if (this.dialogTitle == "Register" && !this.user.name) {
@@ -260,22 +280,19 @@ export default {
       if (!this.user.password) {
         this.errMessage.password = "Wajib Diisi";
       }
+      // condition if input text not have any error messages
       if (!this.errMessage.email) {
-        console.log("email aman");
         this.email = true;
       }
       if (!this.errMessage.name) {
-        console.log("name aman");
         this.name = true;
       }
       if (!this.errMessage.password) {
-        console.log("password aman");
         this.password = true;
       } else {
+        // we can dispatch action at here
         console.log("Register Sukses");
-        this.validated = !this.validated;
       }
-      console.log(this.errMessage);
     },
   },
 };
