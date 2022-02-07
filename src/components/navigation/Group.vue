@@ -16,7 +16,7 @@
     <template v-slot:body>
       <!-- Start ==> Input Text Email -->
       <div class="form-wrapper">
-        <text-field :class="emailIsError">
+        <text-field :class="[emailIsError, emailIsSuccess]">
           <template v-slot:inputText>
             <label for="email" class="form-label">Email</label>
             <input
@@ -37,7 +37,7 @@
 
       <!-- Start ==> Input Text Password -->
       <div class="form-wrapper">
-        <text-field :class="passwordIsError">
+        <text-field :class="[passwordIsError, passwordIsSuccess]">
           <template v-slot:inputText>
             <label for="password" class="form-label">Password</label>
 
@@ -75,7 +75,7 @@
       <!-- Start ==> Input Text Name -->
       <form method="POST">
         <div class="form-wrapper">
-          <text-field :class="nameIsError">
+          <text-field :class="[nameIsError, nameIsSuccess]">
             <template v-slot:inputText>
               <label for="Name" class="form-label">Name</label>
               <input
@@ -96,7 +96,7 @@
 
         <!-- Start ==> Input Text Email -->
         <div class="form-wrapper">
-          <text-field :class="emailIsError">
+          <text-field :class="[emailIsError, emailIsSuccess]">
             <template v-slot:inputText>
               <label for="email" class="form-label">Email</label>
               <input
@@ -117,7 +117,7 @@
 
         <!-- Start ==> Input Text Password -->
         <div class="form-wrapper">
-          <text-field :class="[passwordIsError, submitted ? 'success' : '']">
+          <text-field :class="[passwordIsError, passwordIsSuccess]">
             <template v-slot:inputText>
               <label for="password" class="form-label">Password</label>
               <input
@@ -194,9 +194,21 @@ export default {
         name: "",
         password: "",
       },
+      email: false,
+      name: false,
+      password: false,
     };
   },
   computed: {
+    nameIsSuccess() {
+      return this.name ? "success" : "";
+    },
+    emailIsSuccess() {
+      return this.email ? "success" : "";
+    },
+    passwordIsSuccess() {
+      return this.password ? "success" : "";
+    },
     nameIsError() {
       return this.errMessage.name ? "error" : "";
     },
@@ -226,6 +238,10 @@ export default {
       return re.test(email);
     },
     clearMessage() {
+      this.name = false;
+      this.email = false;
+      this.password = false;
+
       this.errMessage.name = "";
       this.errMessage.email = "";
       this.errMessage.password = "";
@@ -243,9 +259,21 @@ export default {
       }
       if (!this.user.password) {
         this.errMessage.password = "Wajib Diisi";
+      }
+      if (!this.errMessage.email) {
+        console.log("email aman");
+        this.email = true;
+      }
+      if (!this.errMessage.name) {
+        console.log("name aman");
+        this.name = true;
+      }
+      if (!this.errMessage.password) {
+        console.log("password aman");
+        this.password = true;
       } else {
         console.log("Register Sukses");
-        this.validated = true;
+        this.validated = !this.validated;
       }
       console.log(this.errMessage);
     },
