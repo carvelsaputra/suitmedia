@@ -34,7 +34,10 @@
   border: 1px solid #ff5f2d;
   outline: none;
 }
-
+.error textarea {
+  border: 1px solid #ff5f2d;
+  outline: none;
+}
 .error-message {
   font-family: "PT_Sans-Web-Regular";
   color: #ff5f2d;

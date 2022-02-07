@@ -13,7 +13,7 @@
           <p class="comment">Tambahkan Komentar</p>
         </div>
       </div>
-      <thread-add-comment @submit="submit" />
+      <thread-add-comment />
     </div>
     <thread-top :list="discussions" />
   </div>

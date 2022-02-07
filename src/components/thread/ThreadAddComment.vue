@@ -1,6 +1,6 @@
 <template>
   <section class="add-comment-wrapper">
-    <text-field class="form">
+    <text-field class="form" :class="nameIsError">
       <template v-slot:inputText>
         <div class="label">
           <label for="Name">Name</label>
@@ -16,7 +16,9 @@
         <i class="fas fa-user"></i>
       </template>
     </text-field>
-    <text-field class="form">
+    <div class="error-message">{{ errMessage.name }}</div>
+
+    <text-field class="form" :class="emailIsError">
       <template v-slot:inputText>
         <label for="email" class="label">Email</label>
         <input
@@ -30,7 +32,9 @@
         <i class="fas fa-envelope"></i>
       </template>
     </text-field>
-    <text-field class="form">
+    <div class="error-message">{{ errMessage.email }}</div>
+
+    <text-field class="form" :class="commentIsError">
       <template v-slot:inputText>
         <label for="email" class="label">Komentar</label>
         <textarea
@@ -44,9 +48,11 @@
         <i class="fas fa-pen"></i>
       </template>
     </text-field>
+    <div class="error-message">{{ errMessage.comment }}</div>
+
     <div class="btn-wrapper">
-      <div class="btn reset">Reset</div>
-      <div class="btn submit">Submit</div>
+      <div @click="clearMessage()" class="btn reset">Reset</div>
+      <div class="btn submit" @click="validate">Submit</div>
     </div>
   </section>
 </template>
@@ -64,7 +70,58 @@ export default {
         email: "",
         content: "",
       },
+      errMessage: {
+        name: "",
+        email: "",
+        comment: "",
+      },
     };
+  },
+  computed: {
+    nameIsError() {
+      return this.errMessage.name ? "error" : "";
+    },
+    emailIsError() {
+      return this.errMessage.email ? "error" : "";
+    },
+    commentIsError() {
+      return this.errMessage.comment ? "error" : "";
+    },
+  },
+  methods: {
+    validEmail(email) {
+      var re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    clearMessage() {
+      this.comment.name = "";
+      this.comment.email = "";
+      this.comment.content = "";
+
+      this.errMessage.name = "";
+      this.errMessage.email = "";
+      this.errMessage.comment = "";
+    },
+    validate() {
+      if (!this.comment.name) {
+        this.errMessage.name = "Wajib Diisi";
+      }
+      if (!this.comment.email) {
+        this.errMessage.email = "Wajib Diisi";
+      }
+      if (!this.validEmail(this.comment.email)) {
+        this.errMessage.email = "Format email salah";
+      }
+      if (!this.comment.content) {
+        this.errMessage.comment = "Wajib Diisi";
+      } else {
+        console.log("Register Sukses");
+        this.validated = true;
+        this.clearMessage();
+      }
+      console.log(this.errMessage);
+    },
   },
 };
 </script>
