@@ -4,21 +4,7 @@
     <label for="drawer-toggle" id="drawer-toggle-label">
       <i class="fas fa-bars fa-2x"></i>
     </label>
-    <!-- <input type="checkbox" id="navigation" />
-    <label id="hamburger--icon" for="navigation">
-    </label> -->
-    <!-- <div class="drawer-navigation-wrapper">
-      <nav class="drawer-navigation">
-        <div>
-          <div class="close-btn">
-            <i class="fas fa-times fa-lg"></i>
-          </div>
-          <div>
-            <NavigationListGroup />
-          </div>
-        </div>
-      </nav>
-    </div> -->
+    
     <nav id="drawer">
       <search-bar :customStyle="styles" />
       <ul>
